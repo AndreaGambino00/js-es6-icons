@@ -24,6 +24,17 @@ body {
     font-family: 'Acme' , sans-serif ;
 }
 
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: #24AEDB;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+}
+
 /* / header */
 
 /* Main */
@@ -63,7 +74,7 @@ i {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 13px;
     margin-bottom: 30px;
 }
 

@@ -97,21 +97,28 @@ const icons = [
     },
 ];
 
-// Milestone 1
+const color = [
+    'blue',
+    'orange',
+    'purple'
+];
+
 const iconsContainer = document.getElementById('icons-container');
-  
+
 print(icons, iconsContainer);
 
+getTypes(icons);
+// Milestone 1
 
 function print(array,container) {
     container.innerHTML = '';
 
     array.forEach((element) => {
-        const { name, family, prefix, type } = element;
+        const { name, family, prefix, color } = element;
         iconsContainer.innerHTML += `
         <div class="icons">
             <div>
-                <i class="${family} ${prefix + name}"></i>
+                <i class="${family} ${prefix + name}" style="color: ${colorIcons(element)}"></i>
                 <div class= "title">${name}</div>
             </div>  
         </div>
@@ -120,3 +127,27 @@ function print(array,container) {
 }
 
 // Milenstone 2
+
+function colorIcons(element) {
+    const types = getTypes();
+    const indexType = types.indexOf(element.type);
+    return color[indexType];
+}
+
+function getTypes() {
+    const types = [];
+    icons.forEach((element) => {
+        if(!types.includes(element.type)) {
+            types.push(element.type);
+        }
+    });
+
+    return types;
+}
+
+
+
+
+
+
+
