@@ -104,10 +104,13 @@ const color = [
 ];
 
 const iconsContainer = document.getElementById('icons-container');
+const select = document.getElementById('type');
+
 
 print(icons, iconsContainer);
 
 getTypes(icons);
+
 // Milestone 1
 
 function print(array,container) {
@@ -143,6 +146,35 @@ function getTypes() {
     });
 
     return types;
+}
+
+
+//Milenstone 3
+
+function printOptions(array, select) {
+    array.forEach((element) => {
+        select.innerHTML += `<option value="${element}">${element}</option>`
+    });
+}
+
+coloredArray(icons, colors);
+print(icons, iconsContainer);
+
+selectOptions(select, getType(icons));
+
+select.onchange = (e) => {
+    console.log(e);
+    const filteredArray = icons.filter((element) => {
+        if(element.type === e.target.value) {
+            return true;
+        }
+        return false
+    }); 
+
+    print(filteredArray, iconsContainer);
+    if (e.target.value === ""){
+        print(icons, iconsContainer);
+    }
 }
 
 
